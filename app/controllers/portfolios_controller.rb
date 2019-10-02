@@ -1,6 +1,7 @@
 class PortfoliosController < ApplicationController
 	def index
 		@portfolio_items = Portfolio.all
+		@page_title = "My Portfolio Blog"
 	end
 
 	def angular
@@ -29,7 +30,7 @@ class PortfoliosController < ApplicationController
 	end
 
 	def show
-		@portfolio_item=Portfolio.find(params[:id]) 
+		@portfolio_item=Portfolio.find(params[:id])
 	end
 
 	def update
@@ -55,9 +56,9 @@ class PortfoliosController < ApplicationController
 
 	def portfolio_params
 		params.require(:portfolio).permit(:title,
-										  								:subtitle,
-										  								:body,
-																			technologies_attributes: [:name]
-									)
+										  :subtitle,
+										  :body,													
+										  technologies_attributes: [:name]
+										 )
 	end
 end
